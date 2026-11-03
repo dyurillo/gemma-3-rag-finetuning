@@ -1,0 +1,49 @@
+# pyproject.toml
+
+[project]
+name = "fine-tuning"
+description = "LoRA fine-tuning of a LLM in PyTorch/PEFT, served and benchmarked on vLLM"
+version = "0.1.0"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+
+dependencies = [
+    "torch",
+    "datasets",
+    "tokenizers",
+    "numpy",
+    "tqdm",
+    "transformers>=5.19.0",
+    "peft>=0.21.2",
+    "accelerate>=1.15.0",
+    "trl>=1.15.0",
+    "openai>=3.29.0",
+    "httpx",
+]
+
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
+[tool.uv]
+package = false
+python-preference = "only-system"
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.ruff.lint]
+extend-select = ["ANN"]
+ignore = ["ANN401"]
+
+[tool.basedpyright]
+typeCheckingMode = "standard"
+venvPath = "."
+venv = ".venv"
+reportPrivateImportUsage = false   # torch exports names dynamically; pyright can't see torch.tensor etc.

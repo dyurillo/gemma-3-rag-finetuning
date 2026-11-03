@@ -1,0 +1,74 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.md
+!README.md
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python tooling / caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+*.egg-info/
+dist/
+build/
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+!.env.example
+.envrc
+
+.direnv/
+
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+
+checkpoints/
+models/
+artifacts/
+
+runs/
+outputs/
+logs/
+
+tensorboard/
+events.out.tfevents.*
+
+wandb/
+
+.cache/
+hf_cache/
+
+data/
+datasets/
+
+.DS_Store
+Thumbs.db
+
+.vscode/
+.idea/
+
+*.swp
+*.swo
+*~
+
+tmp/
+temp/
+*.log

@@ -1,0 +1,11 @@
+use nix
+export UV_PYTHON_DOWNLOADS=never
+dotenv_if_exists .env
+export AI_DATA="${AI_DATA:-$HOME/.local/share/rag-lora}"
+export DATASET_DIR="${DATASET_DIR:-$AI_DATA/datasets}"
+export CHECKPOINT_DIR="${CHECKPOINT_DIR:-$AI_DATA/checkpoints}"
+export BENCHMARK_DIR="${BENCHMARK_DIR:-$AI_DATA/benchmarks}"
+export HF_HOME="${HF_HOME:-$AI_DATA/hf}"
+export CUDA_VISIBLE_DEVICES="${CUDA_VISIBLE_DEVICES:-0}"
+path_add PYTHONPATH "$PWD"
+mkdir -p "$DATASET_DIR" "$CHECKPOINT_DIR" "$BENCHMARK_DIR" "$HF_HOME"
